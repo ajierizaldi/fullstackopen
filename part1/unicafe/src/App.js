@@ -15,12 +15,40 @@ const Statistics = (props) => {
 
   return (
     <div>
-      <StatisticLine text="good" value={props.good} />
-      <StatisticLine text="neutral" value={props.neutral} />
-      <StatisticLine text="bad" value={props.bad} />
-      <StatisticLine text="all" value={all} />
-      <StatisticLine text="average" value={average} />
-      <StatisticLine text="positive" value={positive} />
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <StatisticLine text="good" value={props.good} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text="neutral" value={props.neutral} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text="bad" value={props.bad} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text="all" value={all} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text="average" value={average} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text="positive" value={positive} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }
@@ -52,28 +80,7 @@ const App = () => {
         <button onClick={() => setBad(bad + 1)}>bad</button>
 
         <h1>statistics</h1>
-        <table>
-          <tbody>
-            <tr>
-              <td>good</td><td>{good}</td>
-            </tr>
-            <tr>
-              <td>neutral</td><td>{neutral}</td>
-            </tr>
-            <tr>
-              <td>bad</td><td>{bad}</td>
-            </tr>
-            <tr>
-              <td>all</td><td>{good + neutral + bad}</td>
-            </tr>
-            <tr>
-              <td>average</td><td>{(good - bad) / (good + neutral + bad)}</td>
-            </tr>
-            <tr>
-              <td>positive</td><td>{good / (good + neutral + bad) * 100} %</td>
-            </tr>
-          </tbody>
-        </table>
+        <Statistics good={good} neutral={neutral} bad={bad} />
       </div>
     )
   }
